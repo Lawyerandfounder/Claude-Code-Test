@@ -1,11 +1,5 @@
-// Vercel Serverless Function - Secure 
-  Proxy to n8n Webhook
-  // This keeps the webhook URL hidden from 
-  the client
-
-  export default async function handler(req, 
+export default async function handler(req, 
   res) {
-      // Enable CORS
       res.setHeader('Access-Control-Allow-Ori
   gin', '*');
       res.setHeader('Access-Control-Allow-Met
@@ -13,13 +7,11 @@
       res.setHeader('Access-Control-Allow-Hea
   ders', 'Content-Type');
 
-      // Handle preflight requests
       if (req.method === 'OPTIONS') {
           res.status(200).end();
           return;
       }
 
-      // Only allow GET and POST methods
       if (req.method !== 'GET' && req.method
   !== 'POST') {
           return res.status(405).json({
@@ -27,20 +19,15 @@
       }
 
       try {
-          // Get message from query parameter
-   or body
           const message = req.method ===
-  'GET'
-              ? req.query.message
-              : req.body.message;
+  'GET' ? req.query.message :
+  req.body.message;
 
           if (!message) {
               return res.status(400).json({
   error: 'Message parameter is required' });
           }
 
-          // Get webhook URL from environment
-   variable
           const webhookUrl =
   process.env.N8N_WEBHOOK_URL;
 
@@ -51,7 +38,6 @@
   error: 'Server configuration error' });
           }
 
-          // Call the n8n webhook
           const n8nUrl = `${webhookUrl}?messa
   ge=${encodeURIComponent(message)}`;
 
@@ -71,7 +57,6 @@
 
           const data = await response.json();
 
-          // Return the response from n8n
           return res.status(200).json(data);
 
       } catch (error) {
