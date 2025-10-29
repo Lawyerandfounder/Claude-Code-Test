@@ -317,7 +317,6 @@ function addBotMessage(message, showOptions = false) {
 
       return formatted;
   }
-}
 
 function displayQuickOptions() {
     quickOptionsContainer.innerHTML = '';
