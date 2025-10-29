@@ -301,14 +301,22 @@ function addBotMessage(message, showOptions = false) {
     scrollToBottom();
 }
 
-function formatMessage(message) {
-    // Convert **bold** to <strong>
-    let formatted = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+ function formatMessage(message) {
+      // Use marked.js to parse markdown to HTML
+      // Configure marked for safe HTML and tables
+      marked.setOptions({
+          breaks: true,  // Convert line breaks to <br>
+          gfm: true,     // GitHub Flavored Markdown (for tables)
+          tables: true,  // Enable table support
+          headerIds: false,  // Don't generate header IDs
+          mangle: false  // Don't mangle email addresses
+      });
 
-    // Convert line breaks to <br>
-    formatted = formatted.replace(/\n/g, '<br>');
+      // Parse markdown to HTML
+      const formatted = marked.parse(message);
 
-    return formatted;
+      return formatted;
+  }
 }
 
 function displayQuickOptions() {
