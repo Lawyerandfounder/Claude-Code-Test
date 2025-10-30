@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DivorceWorks Separation Guide Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <img src="DivorceWorks Long Form Logo.webp" alt="DivorceWorks" class="logo-top-right">
+        <img src="North+Star@4x.webp" alt="" class="north-star">
+        <img src="Start+Cluster+3@4x.webp" alt="" class="star-cluster star-cluster-1">
+        <img src="Start+Cluster+3@4x.webp" alt="" class="star-cluster star-cluster-2">
+
+        <div class="container">
+            <header>
+                <h1>Your Practical Separation Assistant</h1>
+                <div class="tagline">Get clear, actionable steps to plan and protect your finances, privacy, parenting arrangements and headspace during your separation</div>
+            </header>
+
+            <main class="landing-content">
+                <div class="description-section">
+                    <h2>Take Smart Action from Day One</h2>
+                    <p>
+                        Separating? You need practical guidance, fast. Get step-by-step advice on the process, tips around protecting yourself and those close to you, and planning your next moves. This isn't legal or financial advice. Think of us like your separation bestie empowering you to plan your new path ahead.
+                    </p>
+
+                    <div class="cta-section">
+                        <p class="cta-text">Get access to our free separation assistant</p>
+
+                        <form id="user-form" class="user-form">
+                            <div class="form-group">
+                                <label for="user-name">Your Name</label>
+                                <input type="text" id="user-name" name="name" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-email">Email Address</label>
+                                <input type="email" id="user-email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="privacy-consent" name="consent" required>
+                                    <span>I agree to the <a href="https://www.divorceworks.com.au/privacy-policy" target="_blank" rel="noopener noreferrer">DivorceWorks Privacy Policy</a> and would like to receive separation guidance resources and updates via email.</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-primary">Get Started Free</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Financial & Asset Considerations</h3>
+                        <p>Secure bank accounts, document assets, protect property interests, and prevent financial surprises</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy & Security First</h3>
+                        <p>Update passwords, secure communications, protect digital accounts, and maintain your privacy</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📋</div>
+                        <h3>Practical Planning Tools</h3>
+                        <p>Checklists, templates, and action steps for parenting, finances, and evidence gathering</p>
+                    </div>
+                </div>
+
+                <div class="disclaimer">
+                    <p><strong>Important:</strong> This is a practical planning tool, not a lawyer or financial advisor. We provide general guidance and actionable steps—not legal or financial advice. For advice specific to your situation, please consult qualified professionals.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Chatbot Page -->
+    <div id="chatbot-page" class="page">
+        <img src="DivorceWorks Long Form Logo.webp" alt="DivorceWorks" class="logo-top-right">
+        <img src="Start+Cluster+3@4x.webp" alt="" class="star-cluster star-cluster-3">
+
+        <div class="chat-container">
+            <header class="chat-header">
+                <div class="header-content">
+                    <button id="back-btn" class="back-btn" title="Back to start">← Back</button>
+                    <div class="header-text">
+                        <div class="user-info">
+                            <span id="user-greeting"></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="disclaimer-banner">
+                <strong>Disclaimer:</strong> This tool provides general guidance only and is not legal advice. For advice specific to your situation, please consult a qualified family lawyer.
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+
+            <div class="chat-input-area">
+                <div class="quick-options" id="quick-options">
+                    <!-- Quick option buttons will be added here -->
+                </div>
+                <div class="input-container">
+                    <input type="text" id="user-input" placeholder="Type your question here..." autocomplete="off">
+                    <button id="send-btn" class="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
